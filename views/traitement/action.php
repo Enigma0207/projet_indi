@@ -85,4 +85,23 @@ if (isset($_GET["action"])) {
     }
 
 
+
+}
+
+
+    // MISE A JOUR DE LISTE PERMIS
+   if (isset($_POST['update_permis'])) {
+    $id_permis = htmlspecialchars($_POST['id_permis']);
+    $titre = htmlspecialchars($_POST['titre']);
+    $prix = htmlspecialchars($_POST['prix']);
+    $description = htmlspecialchars($_POST['description']);
+    $img_name = $_FILES['photo']['name'];
+
+    // Tu devras également gérer la mise à jour de l'image si nécessaire
+
+    permis1::update_permis($id_permis, $titre, $prix, $description, $img_name);
+
+    // Redirection vers la page listepermis.php après la mise à jour
+    header("Location: listePermis.php");
+    exit;
 }

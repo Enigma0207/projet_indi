@@ -2,7 +2,13 @@
    
     width: 50%;
     margin: auto;
-    /* background-color: aqua; */
+    background-color: rgba(245, 245, 220, 0.473);
+    margin-top: 20px;
+
+}
+body{
+        background-color: rgba(245, 245, 220, 0.438);
+
 }
 table{
    margin-top: 20px;
@@ -15,11 +21,13 @@ header{
 
 }
 .log_url{
-    padding-top: 20px ;
+    padding-top: 15px ;
     display: flex;
     justify-content: space-between;
     /* margin: 20px; */
     color: rgb(4, 157, 217);
+    margin-left: 20px;
+    padding-bottom: 15px;
 }
  ul {
     display: flex;
@@ -157,10 +165,17 @@ hr{
     border-style : none; 
 }
 
-/* .reserannu{
+.reserannu{
     background-color: rgb(204,214,210);
    color: rgb(4, 157, 217); 
     padding: 5px;
     border-radius: 8px;
     text-decoration: none;
-} */
+}
+ span{
+     color: red;
+ }
+ 
+.ici{
+ padding:2px 20px;
+}

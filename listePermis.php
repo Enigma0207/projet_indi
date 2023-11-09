@@ -23,8 +23,11 @@ $listpermis = permis1::listPermis();
                             <td><?= $perm['prix']; ?></td>
                             <td><?= $perm['description']; ?></td>
                             <td><img src="./views/assets/img/<?= $perm['photo']; ?>" alt="" width="100"></td>
-                        </tr>
-            <?php } ?>
+                            <td>
+                               <a class="reserannu" href="editpermis.php?id=<?= $perm['id_permis']; ?>">actualiser</a>
+                            </td>
+                       </tr>
+              <?php } ?>
             </tbody>
         </table>
        

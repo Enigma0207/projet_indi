@@ -16,7 +16,7 @@
     <header>
         
         <div class="log_url">
-            <p>Auto-Ecole</p>
+            <h2>Auto-Ecole</h2>
             <ul>
                 <li>
                 <li><a href="index.php">Home</a></li>

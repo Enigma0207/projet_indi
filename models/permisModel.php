@@ -38,4 +38,31 @@ class permis1
 
   }
 
+  // MISE AJOUR PERMIS
+
+  public static function getPermisById($id_permis)
+{
+    $db = Database::dbConnect();
+    $request = $db->prepare("SELECT * FROM permis WHERE id_permis = ?");
+    try {
+        $request->execute([$id_permis]);
+        $permis = $request->fetch();
+        return $permis;
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+
+  public static function update_permis($id_permis, $titre, $prix, $description, $img_name)
+{
+    $db = Database::dbConnect();
+    $request = $db->prepare("UPDATE permis SET titre = ?, prix = ?, description = ?, photo = ? WHERE id_permis = ?");
+    try {
+        $request->execute([$titre, $prix, $description, $img_name, $id_permis]);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+
+
 }
