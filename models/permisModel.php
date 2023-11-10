@@ -13,7 +13,7 @@ class permis1
     $request = $db->prepare("INSERT INTO permis ( titre,prix,description,photo) VALUES (?,?,?,?)");
     try {
       $request->execute(array( $titre,$prix,$description,$img_name));
-       header("Location: http://localhost/projet_indi/add_permis.php");
+       header("Location: http://localhost/projet_indi/listePermis.php");
     } catch (PDOException $e) {
       echo $e->getMessage();
     }

@@ -1,5 +1,6 @@
-<?php session_start();
+<?php
 include_once "./views/inc/header.php";
+// var_dump($_SESSION);
 ?>
 <!-- s'il ne se connecte pas, affiche ce message: -->
 
@@ -9,10 +10,9 @@ include_once "./views/inc/header.php";
     <div class="form-group">
       <label for="email">email :</label>
       <input type="email" class="form-control" id="email" name="email">
+      <!-- si la session error existe dans userModel.php, affiche-le dans la balise p, apès actualisation fin d'affichage avec unset: -->
       <?php if (isset($_SESSION["error"])) { ?>
-        <p>
-          <?php echo $_SESSION["error"] ?>
-        </p>
+        <p><?php echo $_SESSION["error"] ?></p>
       <?php }
       unset($_SESSION["error"]); ?>
     </div>

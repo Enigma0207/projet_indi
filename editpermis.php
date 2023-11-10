@@ -6,7 +6,10 @@ if (isset($_GET['id'])) {
     $id_permis = $_GET['id'];
     $permis = permis1::getPermisById($id_permis);
 
-    if ($permis) {
+
+    //   if ($permis==["voiture"])
+    if ($permis)
+     {
 ?>
         <form action="views/traitement/action.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id_permis" value="<?= $permis['id_permis']; ?>">

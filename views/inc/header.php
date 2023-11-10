@@ -1,5 +1,8 @@
 
+<?php
+session_start();
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +23,7 @@
             <ul>
                 <li>
                 <li><a href="index.php">Home</a></li>
+                <!-- on gère le lien Register|Login dedans il ya deux lien par hover voir css -->
                 <ul class="menu">
                     <li class="hover-trigger">
                         <a href="#">Register|Login</a>
@@ -30,14 +34,18 @@
 
                     </li>
                 </ul>
+                <!-- un formulaire de déconnexion,traité dans action.php pour détruire la session -->
                  <form action="./views/traitement/action.php" method="post">
                     <button name="logout" class="logout">Logout</button>
                 </form> 
                 </li>
                 <li><a href="">About Us</a></li>
                 <li><a href="">Contact Us</a></li>
+                <!-- si l'utilisateur est connecté,et que c'est un admin;, affiche ce lien (/listePermis.php) -->
+                <?php if (isset($_SESSION["role_user"]) && $_SESSION["role_user"] === "admin") { ?>
+                    <li><a href="<?php echo __DIR__ ?>/listePermis.php">Liste Permis</a></li>
+                <?php } ?>
             </ul>
         </div>
-        
 
     </header>
