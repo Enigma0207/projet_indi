@@ -1,5 +1,9 @@
 <?php
 include_once "./views/inc/header.php";
+if (isset($_SESSION["success_message"])) {
+    echo $_SESSION["success_message"];
+    unset($_SESSION["success_message"]); // Supprimez le message après l'avoir affiché une fois
+}
 ?>
 
 <div class="container">

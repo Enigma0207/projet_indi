@@ -20,26 +20,12 @@ class creneaux1{
     }
   }
 
-    // public static function listCreneaux( )
-  // {
-  //   $db = Database::dbConnect();
-
-  //   // Sélectionnez toutes les colonnes de la table "creneaux" pour un moniteur spécifique
-  //   $request = $db->prepare("SELECT * FROM creneaux ");
-
-  //   try {
-  //       $request->execute();
-  //       $listcreneaux = $request->fetchAll(PDO::FETCH_ASSOC);
-  //       return $listcreneaux;
-  //   } catch (PDOException $e) {
-  //       echo $e->getMessage();
-  //   }
-  // }
      public static function listCreneaux()
        {
            $db = Database::dbConnect();
        
            // Sélectionnez les colonnes nécessaires en effectuant une jointure entre les tables creneaux, permis et user
+           /*select dans creneaux: c.id_creneaux, c.date, p.titre(de permis), u.firstname(de user), c.disponibilite et joindre avec permis où dans creneaux permis_id=id_permis dans permis et joindre user où id_moniteur dans creneaux =id_user dans user */
            $request = $db->prepare("SELECT c.id_creneaux, c.date, p.titre, u.firstname, c.disponibilite FROM creneaux c
                                     LEFT JOIN permis p ON c.permis_id = p.id_permis
                                     LEFT JOIN user u ON c.id_moniteur = u.id_user");
@@ -54,11 +40,11 @@ class creneaux1{
   
   
 // update database
-
+// $id_creneaux qui stock id depuis url quand on soumet, $idEleve qui stock celui qui est connecté
   public static function reserverCreneau($id_creneaux, $idEleve)
  {
     $db = Database::dbConnect();
-
+// mets à jour la table creneaux où id_eleve=? et disponibilité =pris
     $request = $db->prepare("UPDATE creneaux SET id_eleve = ?, disponibilite = 'pris' WHERE id_creneaux = ?");
     try {
         $request->execute(array($idEleve, $id_creneaux));
@@ -83,10 +69,10 @@ class creneaux1{
       
               $annulationQuery = $db->prepare("UPDATE creneaux SET id_eleve = NULL, disponibilite = 'dispo' WHERE id_creneaux = ?");
               $annulationQuery->execute(array($id_creneaux));
-      
+            echo "La réservation du créneau a été annulée avec succès.";
               // Vous pouvez également effectuer d'autres actions ici, par exemple, envoyer un message de confirmation.
           } else {
-              // Le créneau n'est pas réservé par l'élève actuel, vous pouvez gérer cette situation en conséquence, par exemple, afficher un message d'erreur.
+              echo "La réservation du créneau n'a pas pu être annulée. Veuillez vérifier vos informations.";
           }
       }
 

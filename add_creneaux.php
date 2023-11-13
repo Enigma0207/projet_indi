@@ -9,10 +9,11 @@ if (isset($_SESSION["success_message"])) {
     echo $_SESSION["success_message"];
     unset($_SESSION["success_message"]); // Supprimez le message après l'avoir affiché une fois
 }
-// 
-
+/* si un user est connecté, et ce user n'est pas élève*/ 
 if (isset($_SESSION["id_user"]) && $_SESSION["role_user"] !== "élève") {
+    //envoie moi la liste des permis dans  $listpermis
     $listpermis = permis1::listPermis();
+    //envoie moi la liste des tous les users dans  $listuser
     $listuser = user1::listUser();
     ?>
 
@@ -24,7 +25,9 @@ if (isset($_SESSION["id_user"]) && $_SESSION["role_user"] !== "élève") {
                     <option value="">Choisir un permis</option>
                     <?php
                     foreach ($listpermis as $permiz) { ?>
-                        <option value="<?= $permiz['id_permis'] ?>"><?= $permiz['titre'] ?></option>
+                    <!--pourquoi l'id-permis? $permiz['id_permis'] -->
+                    <!-- on affiche les valeurs du titre depuis la table permis -->
+                    <option value="<?= $permiz['id_permis'] ?>"><?= $permiz['titre']?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -39,6 +42,8 @@ if (isset($_SESSION["id_user"]) && $_SESSION["role_user"] !== "élève") {
                     max="<?= date('Y-m-d\TH:i', strtotime('+1 year')) ?>"
                 />
             </div>
+            <!--c'est quoi le rôle de inpute hidden ici -->
+            <!-- il permet de récuperer le  user qui s'est connecté (moniteur) -->
             <input type="hidden" name="id_user" value="<?= $_SESSION["id_user"] ?>">
             <button type="submit" class="btn btn-primary mt-5 mb-5" name="choisir">Choisir</button>
         </form>

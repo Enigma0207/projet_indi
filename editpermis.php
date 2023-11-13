@@ -5,9 +5,6 @@ require_once './models/permisModel.php';
 if (isset($_GET['id'])) {
     $id_permis = $_GET['id'];
     $permis = permis1::getPermisById($id_permis);
-
-
-    //   if ($permis==["voiture"])
     if ($permis)
      {
 ?>

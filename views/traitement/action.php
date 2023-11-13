@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 // besoin de nos models qui à leur auront vont inclurent bdd
 require_once "../../models/userModel.php";
 require_once "../../models/permisModel.php";
@@ -60,7 +60,8 @@ if(isset($_POST['submit'])){
   if (isset($_POST['choisir'])) {
     $date = htmlspecialchars($_POST['date']);
     $idPermis = htmlspecialchars($_POST['permis_id']);
-    $idUser = $_SESSION["id_user"];
+    // on récupère le moniteur qui sest connecté qui ahoute son creneaux
+    $idUser = htmlspecialchars($_POST["id_user"]);
 
     creneaux1::add_creneaux($date, $idPermis, $idUser); // Ajout du 4e argument
   }

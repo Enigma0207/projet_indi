@@ -43,7 +43,8 @@ session_start();
                 <li><a href="">Contact Us</a></li>
                 <!-- si l'utilisateur est connecté,et que c'est un admin;, affiche ce lien (/listePermis.php) -->
                 <?php if (isset($_SESSION["role_user"]) && $_SESSION["role_user"] === "admin") { ?>
-                    <li><a href="<?php echo __DIR__ ?>/listePermis.php">Liste Permis</a></li>
+                    <!--<li><a href="<?php echo __DIR__ ?>/listePermis.php">Liste Permis</a></li> -->
+                    <li><a href="./listePermis.php">Liste Permis</a></li> 
                 <?php } ?>
             </ul>
         </div>
