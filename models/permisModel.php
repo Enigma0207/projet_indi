@@ -1,7 +1,6 @@
 <?php
 require_once "database.php";
 
-// 1actor.creation de la classe actor pour add-actor
 class permis1
 {
 

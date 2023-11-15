@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "./views/inc/header.php";
 require_once './models/userModel.php';
 // appeler la méthode statique listUser dans la classe user1
@@ -29,6 +30,7 @@ if (isset($_SESSION["success_message"])) {
             </thead>
             <tbody>
              <!--le tableau ($listuser est répresenté par $user cad variable temporaire qui prend la valeur de chaque élémént du tableau  -->
+             <div class="titre"><h3>Liste des Users</h3></div>
             <?php foreach ($listuser as $user){?>
                           <tr>
                             <td><?= $user['firstname']; ?></td>

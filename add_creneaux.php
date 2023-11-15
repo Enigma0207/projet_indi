@@ -1,11 +1,11 @@
 <?php
-
-
+session_start();
 include_once "./views/inc/header.php";
 require_once './models/permisModel.php';
 require_once './models/userModel.php';
 // pour message de connexion d'un moniteur
 if (isset($_SESSION["success_message"])) {
+    // var_dump($_SESSION);
     echo $_SESSION["success_message"];
     unset($_SESSION["success_message"]); // Supprimez le message après l'avoir affiché une fois
 }

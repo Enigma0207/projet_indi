@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // besoin de nos models qui à leur auront vont inclurent bdd
 require_once "../../models/userModel.php";
@@ -26,7 +27,7 @@ if(isset($_POST['submit'])){
     $password = htmlspecialchars($_POST['password']);
     $email = htmlspecialchars($_POST['email']);
 
-    user1::connexion( $email,$password);
+    user1::connexion($email,$password);
   }
 
    //3. DECONNCTER DANS INDEX.PHP

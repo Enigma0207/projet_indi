@@ -1,6 +1,6 @@
 
 <?php
-session_start();
+
 
 ?>
 <!DOCTYPE html>
@@ -45,6 +45,8 @@ session_start();
                 <?php if (isset($_SESSION["role_user"]) && $_SESSION["role_user"] === "admin") { ?>
                     <!--<li><a href="<?php echo __DIR__ ?>/listePermis.php">Liste Permis</a></li> -->
                     <li><a href="./listePermis.php">Liste Permis</a></li> 
+                    <li><a href="./add_creneaux.php">Ajouter creneaux</a></li> 
+                    <li><a href="./listeUser.php">ListeUser</a></li> 
                 <?php } ?>
             </ul>
         </div>

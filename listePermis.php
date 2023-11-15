@@ -1,4 +1,5 @@
 <?php
+// session_start();
 include_once "./views/inc/header.php";
 require_once './models/permisModel.php';
 $listpermis = permis1::listPermis();
@@ -17,6 +18,7 @@ $listpermis = permis1::listPermis();
                 </tr>
             </thead>
             <tbody>
+            <div class="titre"><h3>Liste des Permis</h3></div>
             <?php foreach ($listpermis as $perm) { ?>
                        <tr>
                             <td><?= $perm['titre']; ?></td>

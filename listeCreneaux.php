@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "./views/inc/header.php";
 require_once './models/creneauxModel.php';
 // pour message de connexion
@@ -10,7 +11,7 @@ if (isset($_SESSION["success_message"])) {
 if (isset($_SESSION["id_user"])) {
     $idMoniteur = $_SESSION["id_user"];
     // on récupère la liste de creneaux pour le moniteur qui s'est connecté listCreneaux($idMoniteur);
-    $listcreneaux = creneaux1::listCreneaux($idMoniteur);
+    $listcreneaux = creneaux1::listCreneaux();
 } ?>
 
 
@@ -27,6 +28,7 @@ if (isset($_SESSION["id_user"])) {
                 </tr>
             </thead>
             <tbody>
+                <div class="titre"><h3>Liste des Creneaux </h3></div>
             <?php foreach ($listcreneaux as $creneau) { ?>
                 <tr  <?=  $creneau['disponibilite'] === 'pris' ? 'reserved' : ''; ?>>
                     <td><?= $creneau['id_creneaux']; ?></td>
